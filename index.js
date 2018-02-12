@@ -3,6 +3,8 @@ var express = require('express');
 var app = express();
 app.set('port', process.env.PORT || 5000);
 
+var hold = process.env.PORT;
+
 var greetings=[
     "hola",
     "hey dudes",
@@ -33,7 +35,7 @@ app.get("/add/:greet", (req, resp)=>{
 
 // Our first route
 app.get('/', function (req, res) {
-  res.send('Hello Node + GitHub! Port is: ' + process.env.PORT);
+  res.send(hold);
 });
 
 
