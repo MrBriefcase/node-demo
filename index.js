@@ -33,14 +33,14 @@ app.get("/add/:greet", (req, resp)=>{
 
 // Our first route
 app.get('/', function (req, res) {
-  res.send('Hello Node + GitHub!');
+  res.send('Hello Node + GitHub! Port is: ' + process.env.PORT);
 });
 
 
 
 // SOCKETS *************
 const server = require("http").Server();
-const port2 = 5000;
+const port2 = process.env.PORT || 5000;
 
 var io = require("socket.io")(server);
 
