@@ -56,7 +56,7 @@ io.on("connection", function(socket){
 	});
 });
 
-server.listen(app.get('port'), function(err){
+server.listen(5001, function(err){
     if (err){
         console.log("there is a problem");
         return false;
