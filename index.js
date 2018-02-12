@@ -7,6 +7,12 @@ var io = require("socket.io")(server);
 
 app.set('port', process.env.PORT || 5000);
 
+io.configure(function () {  
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
+
 var greetings=[
     "hola",
     "hey dudes",
