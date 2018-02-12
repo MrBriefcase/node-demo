@@ -39,33 +39,33 @@ app.get('/', function (req, res) {
 
 
 // SOCKETS *************
-//const server = require("http").Server();
-//const port2 = process.env.PORT || 5000;
-//
-//var io = require("socket.io")(server);
-//
-////this sends a message called joined
-//io.on("connection",function(socket){
-//    io.emit("joined");
-//	socket.on("typing",()=>{
-//		socket.broadcast.emit("isTyping");
-//	});
-//});
-//
-//server.listen(port2,function(err){
-//    if (err){
-//        console.log("there is a problem");
-//        return false;
-//    }
-//    else{
-//        console.log("all good head over to the server");
-//    }
-//});
+const server = require("http").Server();
+const port2 = process.env.PORT || 5000;
+
+var io = require("socket.io")(server);
+
+//this sends a message called joined
+io.on("connection", function(socket){
+    io.emit("joined");
+	socket.on("typing", function(){
+		socket.broadcast.emit("isTyping");
+	});
+});
+
+server.listen(port2, function(err){
+    if (err){
+        console.log("there is a problem");
+        return false;
+    }
+    else{
+        console.log("all good head over to the server");
+    }
+});
 
 
 
 // Listen to port
-app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function(){
   console.log('App is listening on port ' + app.get('port'));
 });
 
