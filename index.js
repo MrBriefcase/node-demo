@@ -1,6 +1,10 @@
 // server
 var express = require('express');
 var app = express();
+
+const server = require("http").Server(app);
+var io = require("socket.io")(server);
+
 app.set('port', process.env.PORT || 5000);
 
 var greetings=[
@@ -44,23 +48,23 @@ app.get('/', function (req, res) {
 //
 //var io = require("socket.io")(server);
 //
-////this sends a message called joined
-//io.on("connection", function(socket){
-//    io.emit("joined");
-//	socket.on("typing", function(){
-//		socket.broadcast.emit("isTyping");
-//	});
-//});
-//
-//server.listen(port2, function(err){
-//    if (err){
-//        console.log("there is a problem");
-//        return false;
-//    }
-//    else{
-//        console.log("all good head over to the server");
-//    }
-//});
+//this sends a message called joined
+io.on("connection", function(socket){
+    io.emit("joined");
+	socket.on("typing", function(){
+		socket.broadcast.emit("isTyping");
+	});
+});
+
+server.listen(app.get('port'), function(err){
+    if (err){
+        console.log("there is a problem");
+        return false;
+    }
+    else{
+        console.log("all good head over to the server");
+    }
+});
 
 
 
