@@ -35,7 +35,7 @@ app.get("/add/:greet", (req, resp)=>{
 
 // Our first route
 app.get('/', function (req, res) {
-  res.send(hold);
+  res.send('Hello Node + GitHub!');
 });
 
 
