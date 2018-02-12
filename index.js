@@ -7,12 +7,6 @@ var io = require("socket.io")(server);
 
 app.set('port', process.env.PORT || 5000);
 
-var cors = require('cors');
-app.use(cors(
-    {
-        credentials: true, origin: 'http://socketpractice.herokuapp.com'
-    }));
-
 var greetings=[
     "hola",
     "hey dudes",
