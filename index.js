@@ -33,34 +33,34 @@ app.get("/add/:greet", (req, resp)=>{
 
 // Our first route
 app.get('/', function (req, res) {
-  res.send('Hello Node + GitHub! Changes');
+  res.send('Hello Node + GitHub! I did changes.');
 });
 
 
 
-// SOCKETS *************
-const server = require("http").Server();
-const port2 = process.env.PORT || 5000;
-
-var io = require("socket.io")(server);
-
-//this sends a message called joined
-io.on("connection", function(socket){
-    io.emit("joined");
-	socket.on("typing", function(){
-		socket.broadcast.emit("isTyping");
-	});
-});
-
-server.listen(port2, function(err){
-    if (err){
-        console.log("there is a problem");
-        return false;
-    }
-    else{
-        console.log("all good head over to the server");
-    }
-});
+//// SOCKETS *************
+//const server = require("http").Server();
+//const port2 = process.env.PORT || 5000;
+//
+//var io = require("socket.io")(server);
+//
+////this sends a message called joined
+//io.on("connection", function(socket){
+//    io.emit("joined");
+//	socket.on("typing", function(){
+//		socket.broadcast.emit("isTyping");
+//	});
+//});
+//
+//server.listen(port2, function(err){
+//    if (err){
+//        console.log("there is a problem");
+//        return false;
+//    }
+//    else{
+//        console.log("all good head over to the server");
+//    }
+//});
 
 
 
