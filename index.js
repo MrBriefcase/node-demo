@@ -40,7 +40,7 @@ app.get('/', function (req, res) {
 
 // SOCKETS *************
 const server = require("http").Server();
-const port2 = process.env.PORT || 5000;
+const port2 = 5000;
 
 var io = require("socket.io")(server);
 
