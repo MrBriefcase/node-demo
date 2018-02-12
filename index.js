@@ -22,6 +22,10 @@ app.get("/add/:greet", (req, resp)=>{
     greetings.push(greet);
     resp.end("a new greeting added");
 });
+// BASE
+app.get("/", (req, resp)=>{
+    res.send('Hello Node + GitHub!');
+});
 
 app.listen(port, function(err){
     if(err){
