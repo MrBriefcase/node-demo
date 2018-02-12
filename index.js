@@ -10,7 +10,7 @@ var greetings=[
     "Salam Refighi",
     "Ahlan Va sahlan",
     "Priviet"
-]
+];
 
 // ALLOW ACCESS *************
 app.use(function(req, res, next) {
