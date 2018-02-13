@@ -16,7 +16,10 @@ var greetings=[
     "Priviet"
 ];
 
-var chatBox = 'Welcome to the chat app!<br/>';
+var chatBox = [ { 
+                 msg: 'Welcome to the chat app!<br/>'
+                }
+               ];
 
 // ALLOW ACCESS *************
 app.use(function(req, res, next) {
@@ -34,8 +37,10 @@ app.get("/greeting", function(req, resp){
 //this where we receive the greeting and push it into our array
 app.get("/add/:greet", (req, resp)=>{
     var greet = req.params.greet;
-    chatBox += greet;
-    chatBox += '<br/>';
+    var obj = {
+        msg: greet
+    };
+    chatBox.push(obj);
     resp.end("a new greeting added");
 });
 
