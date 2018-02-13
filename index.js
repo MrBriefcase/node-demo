@@ -32,7 +32,8 @@ app.use(function(req, res, next) {
 app.get("/greeting", function(req, resp){
     var index=Math.random()*(greetings.length-1);
     index=Math.round(index);
-    resp.end(chatBox);
+    var hold = JSON.stringify(chatbox);
+    resp.end(hold);
 });
 //this where we receive the greeting and push it into our array
 app.get("/add/:greet", (req, resp)=>{
