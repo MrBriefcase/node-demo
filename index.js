@@ -16,6 +16,8 @@ var greetings=[
     "Priviet"
 ];
 
+var chatBox = 'Welcome to the chat app!<br/>';
+
 // ALLOW ACCESS *************
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://socketpractice.herokuapp.com");
@@ -27,12 +29,13 @@ app.use(function(req, res, next) {
 app.get("/greeting", function(req, resp){
     var index=Math.random()*(greetings.length-1);
     index=Math.round(index);
-    resp.end(greetings[index]);
+    resp.end(chatBox);
 });
 //this where we receive the greeting and push it into our array
 app.get("/add/:greet", (req, resp)=>{
-    var greet=req.params.greet;
-    greetings.push(greet);
+    var greet = req.params.greet;
+    chatBox += greet;
+    chatBox += '<br/>';
     resp.end("a new greeting added");
 });
 
