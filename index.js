@@ -33,7 +33,7 @@ app.get("/greeting", function(req, resp){
     var index=Math.random()*(greetings.length-1);
     index=Math.round(index);
     var hold = JSON.stringify(chatBox);
-    resp.end(hold);
+    resp.send(hold);
 });
 //this where we receive the greeting and push it into our array
 app.get("/add/:greet", (req, resp)=>{
