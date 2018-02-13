@@ -7,18 +7,6 @@ var io = require("socket.io")(server);
 
 app.set('port', process.env.PORT || 5000);
 
-var cors = require('cors');
-app.use(cors(
-    {
-        credentials: true, origin: 'http://socketpractice.herokuapp.com'
-    }));
-
-io.configure(function () {  
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
-});
-
-
 var greetings=[
     "hola",
     "hey dudes",
@@ -50,7 +38,7 @@ app.get("/add/:greet", (req, resp)=>{
 
 // Our first route
 app.get('/', function (req, res) {
-  res.send('Hello Node + GitHub! I did changes again.');
+  res.send('Hello Node + GitHub! I did changes.');
 });
 
 
@@ -85,10 +73,4 @@ server.listen(5001, function(err){
 app.listen(app.get('port'), function(){
   console.log('App is listening on port ' + app.get('port'));
 });
-
-
-
-
-
-
 
